@@ -17,6 +17,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+// Layers
+#define _BASE 0
+#define _FUNC 1
+#define _USED 2
+#define _AROW 3
+#define _RAISE 4
+#define _ADJUST 16
+
+// Mod-tap
+#define MT_CE LCTL_T(KC_ESC)
+
 //  RGB-specific keys:
 //  EF_INC, EF_DEC,   // next/previous backlight effect
 //  H1_INC, H1_DEC,   // Color 1 hue increase/decrease
@@ -26,12 +37,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //  BR_INC, BR_DEC,   // backlight brightness increase/decrease
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT_65_ansi_blocker(
-        KC_GESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,  KC_EQL, KC_BSPC, KC_HOME,
-        KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP,
-        KC_CAPS,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,           KC_ENT, KC_PGDN,
-        KC_LSFT,             KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,   KC_UP,  KC_END,
-        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                               MO(1), KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+    [_BASE] = LAYOUT_65_ansi_blocker(
+        KC_GESC,    KC_1,       KC_2,    KC_3,   KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,  KC_0,  KC_LBRC, KC_RBRC, KC_BSPC, KC_HOME,
+        KC_TAB,     KC_QUOT,    KC_COMM, KC_DOT, KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,  KC_L,  KC_SLSH, KC_EQL,  KC_BSLS, KC_PGUP,
+        MT_CE,      KC_A,       KC_O,    KC_E,   KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,  KC_S,  KC_MINS,          KC_ENT,  KC_PGDN,
+        KC_LSFT,                KC_SCLN, KC_Q,   KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,  KC_V,  KC_Z,    KC_RSFT, KC_UP,   KC_END,
+        KC_CAPS,    KC_LGUI,    KC_LALT,                        KC_SPC,                              MO(1), KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     ),
 #ifdef RGB_BACKLIGHT_PORTICO
     [1] = LAYOUT_65_ansi_blocker(
