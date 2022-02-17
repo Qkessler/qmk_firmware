@@ -23,6 +23,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 240
 #define RETRO_TAPPING
 
+#define USE_SERIAL
+
+#define MASTER_LEFT
+#define SPLIT_USB_DETECT
+#define SPLIT_USB_TIMEOUT 2000
+
+#define EE_HANDS
 
 #undef MOUSEKEY_DELAY
 #define MOUSEKEY_DELAY 5
