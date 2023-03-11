@@ -1,0 +1,3 @@
+{
+    "run": "qmk compile -km qkessler -kb ferris/sweep"
+}
